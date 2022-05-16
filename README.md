@@ -11,7 +11,7 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 Link to the original data:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  
 
-# Content of the Repository
+# Content of the Repository 
 1. run_analysis.R :R script that generates a tidy data set from the _Human Activity Recognition Using Smartphones Data Set in the steps outlined below: 
 
        a. Merges the training and the test sets to create one data set.
