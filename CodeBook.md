@@ -1,23 +1,12 @@
-# Code Book 
+# CodeBook 
 
-This code book contains a description the variables of the data set, and any transformations performed to clean up the data in `unique_act_sub.txt` 
+This code book contains a description the variables of the data set, and any transformations performed to create the clean data set: `tidydata.txt` 
 
-## Feature Selection and Sample Aggregation
+## Selection of variables
 
-- The training and test set are concatnated into one data set
+The training and test set are merged into one data set. Features that contain MEAN and STANDARD DEVIATION subset from inital data set. Aggregation of mean by activity and subject id carried out.
 
-- Features regarding **Mean value** and **Standard deviation** are selected from the original data
-
-- Samples with the same `activity_name` and `subject_id` are reduced to the corresponding **mean value**
-
-## List of Features
-
-### Identifiers
-* `subject_id`: The ID of the volunteer ranging from 1 - 30
-* `activity_name`: specific activities individuals were performing, includes: `WALKING`, `WALKING_UPSTAIRS`, `WALKING_DOWNSTAIRS`, `SITTING`, `STANDING`, `LAYING`
-
-### Measured Variables
-#### feature info
+## Definition of acronyms in titles 
 * `t`: time domain signal
 * `Acc`: acceleration signal
 * `Gyro`: gyroscope signal
@@ -30,7 +19,9 @@ This code book contains a description the variables of the data set, and any tra
 * `Body`: results from human movement
 * `Gravity`: results from gravitational force
 
-#### feature detail
+#### Variables
+* `subject_id`: The ID of the volunteer ranging from 1 - 30
+* `activity_name`: specific activities performed: _`WALKING`, `WALKING_UPSTAIRS`, `WALKING_DOWNSTAIRS`, `SITTING`, `STANDING`, `LAYING`_
 * `tBodyAcc-mean()-X`
 * `tBodyAcc-mean()-Y`
 * `tBodyAcc-mean()-Z`
