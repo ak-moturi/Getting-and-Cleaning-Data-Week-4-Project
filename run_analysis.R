@@ -1,7 +1,9 @@
+###Load libraries to be used in data cleaning
+
 library(dplyr)
 library(tidyr)
 
-### Read downloaded data files into R
+### Read training and test data files into R
 
 trainx <- read.table("./UCI HAR Dataset/train/X_train.txt")
 trainy <- read.table("./UCI HAR Dataset/train/y_train.txt")
@@ -21,27 +23,29 @@ merge_train <- cbind(subtrain,trainx,trainy)
 merge_test <- cbind(subtest, testx, testy)
 mergealldata <- rbind(merge_train, merge_test)
 
-#Rename variables with descriptive names
+###Rename variables with descriptive names
 
 colnames(mergealldata) <- c("subject_id", featurenames$V2, "activity_id")
 colnames(activitylbls) <- c("activity_id", "activity_name")
 
-## Extract measurements on mean and std for each sample
+### Extract measurements on mean and std for each sample
 
-#create column name variable for extraction by matching
-matchnames <- c("subject_id", featurename$V2, "activity_id")
+##create column name variable for extraction by matching
+matchnames <- c("subject_id", featurenames$V2, "activity_id")
 
 features_mean_std <- mergealldata[, grepl("subject_id|activity_id|mean|std", matchnames)]
 
-## Merge data by `activity_id` to match the descriptive names given in activitylabls 
+### Merge data by `activity_id` to match the descriptive names given in activitylabls 
 
-feature_actnamed <- merge(feature_mean_std, activitylbls, by = "activity_id")
+feature_actnamed <- merge(features_mean_std, activitylbls, by = "activity_id")
 
-#remove old acitivity_id column
-feature_actnamedt$"activity_id" = NULL
+##remove old acitivity_id column
+feature_actnamed$"activity_id" = NULL
 
 ## Create new dataset with the average of each variable for each activity and each subject.
 
-unique_act_sub <- aggregate(. ~ subject_id + activity_name, feature_actnamed, FUN = mean)
-unique_act_sub <- arrange(unique_act_sub, subject_id, activity_name)
-write.table(unique_act_sub, "unique_act_sub.txt", row.names = FALSE)
+avg_act_sub <- aggregate(. ~ subject_id + activity_name, feature_actnamed, FUN = mean)
+avg_act_sub <- arrange(unique_act_sub, subject_id, activity_name)
+
+###Write tidy dataset to text file
+write.table(avg_act_sub, "tidydata.txt", row.names = FALSE)
