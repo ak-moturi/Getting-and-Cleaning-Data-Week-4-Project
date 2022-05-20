@@ -12,7 +12,7 @@ Link to the original data:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  
 
 # Content of the Repository 
-1. run_analysis.R :R script that generates a tidy data set from the _Human Activity Recognition Using Smartphones Data Set. The foolowing tasks are performed: 
+1. run_analysis.R :R script that generates a tidy data set from the _Human Activity Recognition Using Smartphones Data Set. The following tasks are performed: 
 
        a. Merges the training and the test sets to create one data set.
 
@@ -24,7 +24,8 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
        e. From the data set in step 4, creates a  tidy data set with the average of each variable for each activity and each subject..
  
- 2. unique_act_sub.txt : a tidy data set with unique identifiers subject and activity, with 180 observations and 81 variables including subject_id and activity_name
+ 2. tidydata.txt : a tidy data set with unique identifiers subject and activity, with 180 observations and 81 variables including subject_id and activity_name
 
  3. CodeBook.md : a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data
+ 
  4. README.md: explains how all of the scripts work and how they are connected.
